@@ -1,0 +1,15 @@
+List of all the Published blogs 
+
+<br />
+<br />
+<br />
+<br />
+
+
+{% for obj in objs %}
+    <ul>
+        <li>
+            <a href="{% url 'blog:blog_detail_view' obj.id %}"> {{ obj.title }} </a>
+        </li>
+    </ul>
+{% endfor %}

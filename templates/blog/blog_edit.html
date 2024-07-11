@@ -1,0 +1,8 @@
+<h3>
+    Edit your blog!
+</h3>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Edit</button>
+</form>

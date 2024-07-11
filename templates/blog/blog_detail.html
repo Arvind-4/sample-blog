@@ -1,0 +1,44 @@
+<h2>{{obj.title}}</h2>
+
+
+<p>
+    {{obj.description}}
+</p>
+
+<p>
+    {{obj.tags}}
+</p>
+
+<p>
+    {{obj.draft}}
+</p>
+
+<p>
+    Created at: {{obj.created_at}}<br />
+    Updated at: {{obj.updated_at}}
+</p>
+
+<button style="background-color: red; color: white;">
+    <a href="{% url 'blog:blog_delete_view' obj.id %}">Delete</a>
+</button>
+
+
+<button style="background-color: green; color: white;">
+    <a href="{% url 'blog:blog_edit_view' obj.id %}">Edit</a>
+</button>
+
+
+
+
+<form method="post">
+    {% csrf_token %}
+<input name="comment" id="comment" type="text" placeholder="Comment">
+
+<button type="submit">Comment</button>
+</form>
+
+{% for comment in obj.comments.all %}
+    <p>
+        {{comment.comment}} | {{comment.created_at}}
+    </p>
+{% endfor %}

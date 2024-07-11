@@ -1,0 +1,21 @@
+List of all the blogs
+
+<br />
+<br />
+<br />
+<br />
+<button>
+    <a href="{% url 'blog:blog_create_view' %}">Create a blog</a>
+</button>
+
+<button>
+    <a href="{% url 'blog:blog_published_view' %}">List of all the Published blogs</a>
+</button>
+
+{% for obj in objs %}
+    <ul>
+        <li>
+            <a href="{% url 'blog:blog_detail_view' obj.id %}"> {{ obj.title }} </a>
+        </li>
+    </ul>
+{% endfor %}
